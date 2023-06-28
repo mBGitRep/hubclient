@@ -1,0 +1,286 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  Profile image
+  .profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  /* Profile name */
+  .profile .name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  
+ 
+  .profile .position {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 5px;
+  }
+  
+  /* Profile education */
+  .profile .education {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 5px;
+  }
+  
+  /* Profile description */
+  .profile .description {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 5px;
+  }
+  
+  /* Profile location */
+  .profile .location {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 10px;
+  }
+  
+  /* Connect button */
+  .profile button {
+    padding: 8px 16px;
+    background-color: #1161b6;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  /* Connected button */
+  .profile button[disabled] {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    border-radius: 20px;
+  }
+  section {
+    margin: 20px;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropbtn {
+    background-color: #0077b5;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropbtn:hover {
+    background-color: #005ea2;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  input[type="text"] {
+    padding: 8px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus {
+    border-color: #0077b5;
+  }
+
+  
+  .profilesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .profile {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 
+  }
+
+  .button-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .button-container button,
+  .button-container form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .button-container button {
+    padding: 8px 16px;
+    background-color: #1161b6;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .button-container form label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #666666;
+  }
+  
+  .button-container form input[type="file"] {
+    border: none;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+  }
+  
+  .button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.button-container button,
+.button-container form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.button-container button {
+  padding: 8px 16px;
+  background-color: #1161b6;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button-container form label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #666666;
+}
+
+.button-container form input[type="file"] {
+  border: none;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+}
+ .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Added box shadow */
+  }
+  
+  .profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Added box shadow */
+  }
+  
+  .profile .name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  
+  .profile .position,
+  .profile .education,
+  .profile .description,
+  .profile .location {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 5px;
+  }
+  
+  .profile button {
+    padding: 8px 16px;
+    background-color: #1161b6;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Added box shadow */
+  }
+  
+  .profile button[disabled] {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    border-radius: 20px;
+  }
+  
+  section {
+    margin: 20px;
+  }
+  
+  .profilesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .profile {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Added box shadow */
+  } 

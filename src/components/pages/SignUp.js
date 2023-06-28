@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import "./SignUp"
 
 const SignUp = ({ setUser }) => {
   const [inputs, setInputs] = useState({
@@ -28,7 +29,7 @@ const SignUp = ({ setUser }) => {
     })
       .then((res) => res.json())
       .then((email) => email);
-    navigate("/login");
+    navigate("/");
   };
 
   return (
@@ -73,7 +74,7 @@ const SignUp = ({ setUser }) => {
             <h3>
               Already have an account?
               <span className="link">
-                <Link to="/login">Login Now</Link>
+                <Link to="/">Login Now</Link>
               </span>
             </h3>
           </div>

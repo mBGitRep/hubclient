@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-let profileId
+import ConnectionRequestModal from "./ConnectionRequestModal";
+import "./profile.css";
 
-function Profiles({ user }) {
+function Profile({ user }) {
   const [profilesList, setProfilesList] = useState([]);
   const [allProfilesList, setAllProfilesList] = useState([]);
   const [connectedProfiles, setConnectedProfiles] = useState([]);
   const [showConnections, setShowConnections] = useState(false);
   const [cvFile, setCvFile] = useState(null);
   const [selectedProfileId, setSelectedProfileId] = useState(null);
+  const [showConnectionRequestModal, setShowConnectionRequestModal] =
+    useState(false);
   const navigate = useNavigate();
-  
 
   useEffect(() => {
     getProfileList();
@@ -24,7 +26,10 @@ function Profiles({ user }) {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("connectedProfiles", JSON.stringify(connectedProfiles));
+    localStorage.setItem(
+      "connectedProfiles",
+      JSON.stringify(connectedProfiles)
+    );
   }, [connectedProfiles]);
 
   function getProfileList() {
@@ -44,8 +49,6 @@ function Profiles({ user }) {
     setProfilesList(newProfileList);
   };
 
- 
-
   const handleLocationSearchChange = (e) => {
     const search = e.target.value.toLowerCase();
     const newProfileList = allProfilesList.filter((profile) => {
@@ -55,7 +58,6 @@ function Profiles({ user }) {
     setProfilesList(newProfileList);
   };
 
-
   const handleEducationSearchChange = (e) => {
     const search = e.target.value.toLowerCase();
     const newProfileList = allProfilesList.filter((profile) => {
@@ -64,15 +66,71 @@ function Profiles({ user }) {
     });
     setProfilesList(newProfileList);
   };
-  
+
   const handleCvFileChange = (e) => {
     const file = e.target.files[0];
     setCvFile(file);
   };
 
+  const sendConnectionRequest = (profileId) => {
+    // Find the selected profile from profilesList
+    const selectedProfile = profilesList.find(
+      (profile) => profile.id === profileId
+    );
+
+    // Open the connection request modal
+    setSelectedProfileId(profileId);
+    setShowConnectionRequestModal(true);
+  };
+
+  const handleAcceptConnectionRequest = (profileId) => {
+    // Find the selected profile from profilesList
+    const selectedProfile = profilesList.find(
+      (profile) => profile.id === profileId
+    );
+
+    // Add the selected profile to connectedProfiles
+    setConnectedProfiles([...connectedProfiles, selectedProfile]);
+
+    // Close the connection request modal
+    setShowConnectionRequestModal(false);
+
+    // Show success message
+    alert("Connection request accepted!");
+  };
+
+  const handleRejectConnectionRequest = (profileId) => {
+    // Close the connection request modal
+    setShowConnectionRequestModal(false);
+
+    // Show rejection message
+    alert("Connection request rejected!");
+  };
+
   return (
     <section>
       <div className="navbar">
+        <div>
+          <form>
+            <label className="form-button">
+              Upload CV
+              <input
+                type="file"
+                className="form-button-input"
+                onChange={handleCvFileChange}
+              />
+            </label>
+          </form>
+          <button onClick={() => setShowConnections(true)}>My Connections</button>
+          {showConnections && (
+            <div>
+              <h2>My Connections</h2>
+              {connectedProfiles.map((connectedProfile) => (
+                <div key={connectedProfile.id}>{connectedProfile.name}</div>
+              ))}
+            </div>
+          )}
+        </div>
         <div className="dropdown">
           <button className="dropbtn">Search by education</button>
           <input
@@ -112,45 +170,35 @@ function Profiles({ user }) {
               {profile.name}
             </Link>
             <img src={profile.image_url} alt="" />
-            <div className="category">Position: {profile.position}</div>
+            <div className="position">Position: {profile.position}</div>
             <div className="education">Education: {profile.education}</div>
             <div className="description">
               Description: {profile.description}
             </div>
             <div className="location">Location: {profile.location}</div>
 
-            <button
-              onClick={() => {
-                setConnectedProfiles([...connectedProfiles, profile]);
-              }}
-            >
-              Connect
-            </button>
+            {connectedProfiles.find((p) => p.id === profile.id) ? (
+              <button disabled>Connected</button>
+            ) : (
+              <button onClick={() => sendConnectionRequest(profile.id)}>
+                Connect
+              </button>
+            )}
           </section>
         ))}
       </div>
 
-      <button onClick={() => setShowConnections(true)}>My Connections</button>
-
-       {showConnections && (
-         <div>
-           <h2>My Connections</h2>
-           {connectedProfiles.map((connectedProfile) => (
-             <div key={connectedProfile.id}>{connectedProfile.name}</div>
-           ))}
-         </div>
+      {showConnectionRequestModal && (
+        <ConnectionRequestModal
+          profileId={selectedProfileId}
+          onAccept={handleAcceptConnectionRequest}
+          onReject={handleRejectConnectionRequest}
+          onClose={() => setShowConnectionRequestModal(false)}
+          profilesList={profilesList}
+        />
       )}
-
-    
-      <form>
-        <label>
-          Upload CV:
-          <input type="file" onChange={handleCvFileChange} />
-        </label>
-      </form>
     </section>
   );
 }
 
-export default Profiles;
-
+export default Profile;

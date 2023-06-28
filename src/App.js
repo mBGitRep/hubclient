@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
 import SignUp from "./components/pages/SignUp";
-import Search from "./components/pages/Search"; 
+// import Search from "./components/pages/Search"; 
 import AddProfile from "./components/pages/AddProfile"
 import SingleProfile from "./components/pages/SingleProfile";
 
@@ -17,12 +17,13 @@ function App() {
     <div className="App">
       <Router> 
         <Routes>
-          <Route path="/" element={<Home user={user} setUser={setUser} />} />
-          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/" element={<Login setUser={setUser} />} />
+          <Route path="/home" element={<Home user={user} setUser={setUser} />} />
           <Route path="/signUp" element={<SignUp setUser={setUser} />} />
+
           <Route path="/AddProfile" element={<AddProfile setUser={setUser} />} />
           <Route path="/api/profiles/search" element={<SingleProfile setUser={setUser} user={user} />}/>
-          <Route path="/search" element={<Search />} />
+          {/* <Route path="/search" element={<Search />} /> */}
         </Routes>
       </Router>
     </div>
@@ -30,4 +31,6 @@ function App() {
 }
 
 export default App;
+
+
 

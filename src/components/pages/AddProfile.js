@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import "./AddProfile.css"
 
 function AddProfile({ user }) {
   const [profilesList, setProfilesList] = useState([]);
@@ -42,7 +42,7 @@ function AddProfile({ user }) {
         
         } else {
           console.log("created");
-          navigate("/");
+          navigate("/home");
         }
       });
   }
@@ -62,6 +62,7 @@ function AddProfile({ user }) {
     
     <div className="profilesList">
       <div className="container">
+      <Link to="/home">Home</Link>
         <h2>Create Profile</h2>
         <form>
           <div className="input-box">
@@ -129,13 +130,12 @@ function AddProfile({ user }) {
               required
             />
           </div>
-          <div className="input-box button"></div>
           <button onClick={createProfile}>Create</button>
         </form>
       </div>
     </div>
     <div>
-    <Link to="/">Home</Link>
+    
     </div>
     </section>
   );

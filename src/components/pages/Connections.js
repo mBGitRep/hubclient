@@ -1,23 +1,6 @@
-// import React from "react";
-// import { Link } from "react-router-dom";
+import React from 'react';
 
-// function Connections({ connectedProfiles }) {
-//   return (
-//     <div>
-//       <h2>My Connections</h2>
-//       {connectedProfiles.map((connectedProfile) => (
-//         <div key={connectedProfile.id}>{connectedProfile.name}</div>
-//       ))}
-//       <Link to="/">Home</Link>
-//     </div>
-//   );
-// }
-
-// export default Connections;
-
-import React from "react";
-
-function Connections({ connectedProfiles }) {
+function Connections({ connectedProfiles, handleAcceptConnection }) {
   return (
     <div className="connections-list">
       <h2>Connection Requests</h2>
@@ -39,6 +22,8 @@ function Connections({ connectedProfiles }) {
 }
 
 export default Connections;
+
+
 
 
 
