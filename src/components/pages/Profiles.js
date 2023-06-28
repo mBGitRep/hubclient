@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+let profileId
 
 function Profiles({ user }) {
   const [profilesList, setProfilesList] = useState([]);
@@ -7,7 +8,9 @@ function Profiles({ user }) {
   const [connectedProfiles, setConnectedProfiles] = useState([]);
   const [showConnections, setShowConnections] = useState(false);
   const [cvFile, setCvFile] = useState(null);
+  const [selectedProfileId, setSelectedProfileId] = useState(null);
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     getProfileList();
@@ -106,7 +109,7 @@ function Profiles({ user }) {
         {profilesList.map((profile) => (
           <section key={profile.id} className="profile">
             <Link to={`/api/profiles/search?p=${profile.id}`} className="name">
-              Profile Name: {profile.name}
+              {profile.name}
             </Link>
             <img src={profile.image_url} alt="" />
             <div className="category">Position: {profile.position}</div>

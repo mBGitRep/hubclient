@@ -44,7 +44,7 @@ function AddProfile({ user }) {
           console.log("created");
           navigate("/");
         }
-      })
+      });
   }
 
 

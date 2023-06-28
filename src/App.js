@@ -10,6 +10,8 @@ import SingleProfile from "./components/pages/SingleProfile";
 
 function App() {
   const [user, setUser] = useState(null);
+  
+  console.log(user);
 
   return (
     <div className="App">

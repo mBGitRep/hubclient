@@ -5,15 +5,20 @@ import { Link } from "react-router-dom"; // Import useParams from react-router-d
 function SingleProfile({ user }) {
   const { profileId } = useParams(); // Access the profileId from the URL
   const [profile, setProfile] = useState([]); // Initialize profile as an object
+  console.log({profileId})
 
   useEffect(() => {
     getSingleProfile();
   }, []);
 
   function getSingleProfile() {
-    fetch(`/api/profiles/search?p=${profileId}`) // Remove the '/' after 'search'
+    fetch(`/api/profiles/search/?p=${profileId}`) // Remove the '/' after 'search'
       .then((res) => res.json())
-      .then((data) => setProfile(data.profile));
+      .then((data) => {
+        let profileInfo = (data.profile)
+        setProfile(profileInfo)
+      
+      })
   }
 
   return (
