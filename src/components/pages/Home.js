@@ -48,13 +48,13 @@ function Home({ user, setUser }) {
           <div className="profile">
             <h2>My Profile</h2>
             <img
-              src="https://nssdc.gsfc.nasa.gov/planetary/banner/uranus.gif"
+              src="https://imgur.com/go0ngiR.jpg"
               alt="Your Profile Image"
               className="profile-image"
             />
             <div className="profile-info">
               <p>Name: Mirza Baig</p>
-              <p>Experience: Over a decade of failing to learn code.</p>
+              <p>Experience: Over a decade of project management and to learn problem solving.</p>
               <p>Education: Software Engineer, studied at amazing General Assembly.</p>
               <p>Location: Adelaide, Australia.</p>
             </div>
